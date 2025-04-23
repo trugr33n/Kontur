@@ -3,6 +3,6 @@ module com.monolatte.kontur {
     requires javafx.fxml;
 
 
-    opens com.monolatte.kontur to javafx.fxml;
-    exports com.monolatte.kontur;
+    opens com.monolatte.kontur.view to javafx.fxml;
+    exports com.monolatte.kontur.view;
 }

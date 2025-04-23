@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.monolatte.kontur.view.MainView">
    <children>
       <SplitPane dividerPositions="0.35" VBox.vgrow="ALWAYS">
         <items>
@@ -28,12 +27,12 @@
                                     <Separator VBox.vgrow="ALWAYS" />
                                     <HBox VBox.vgrow="NEVER">
                                        <children>
-                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Добавить" HBox.hgrow="ALWAYS">
+                                          <Button fx:id="_addButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Добавить" HBox.hgrow="ALWAYS">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </Button>
-                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Удалить" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="_removeButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Удалить" HBox.hgrow="ALWAYS" />
                                        </children>
                                        <VBox.margin>
                                           <Insets />
@@ -67,13 +66,13 @@
                                       </content>
                                     </TitledPane>
                                     <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                                    <TitledPane animated="false" text="Информатор" VBox.vgrow="ALWAYS">
+                                    <TitledPane animated="false" maxHeight="1.7976931348623157E308" text="Информатор" VBox.vgrow="ALWAYS">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                       </content>
                                     </TitledPane>
                                     <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                                    <TitledPane animated="false" text="Депортатор" VBox.vgrow="ALWAYS">
+                                    <TitledPane animated="false" maxHeight="1.7976931348623157E308" text="Депортатор" VBox.vgrow="ALWAYS">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                       </content>
