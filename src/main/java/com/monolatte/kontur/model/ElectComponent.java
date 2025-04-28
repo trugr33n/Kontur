@@ -53,4 +53,8 @@ public class ElectComponent {
     public void setDatasheet(String path) { this._datasheetPath = path; }
     public String getDatasheet() { return this._datasheetPath; }
 
+    @Override
+    public String toString() {
+        return this._name;
+    }
 }
