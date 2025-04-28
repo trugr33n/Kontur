@@ -23,22 +23,22 @@
         <items>
           <AnchorPane minHeight="50.0" minWidth="50.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TitledPane alignment="CENTER" animated="false" layoutX="20.0" layoutY="60.0" text="Детали" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TitledPane alignment="CENTER" layoutX="20.0" layoutY="60.0" text="Детали" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <VBox layoutX="45.0" layoutY="71.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <ListView VBox.vgrow="ALWAYS" />
+                                    <ListView fx:id="_compList" VBox.vgrow="ALWAYS" />
                                     <Separator VBox.vgrow="ALWAYS" />
                                     <HBox VBox.vgrow="NEVER">
                                        <children>
-                                          <Button fx:id="_addButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Добавить" HBox.hgrow="ALWAYS">
+                                          <Button fx:id="_addEmptyButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#_onAddEmptyButtonClicked" text="Добавить" HBox.hgrow="ALWAYS">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </Button>
-                                          <Button fx:id="_removeButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Удалить" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="_removeButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#_onRemoveButtonClicked" text="Удалить" HBox.hgrow="ALWAYS" />
                                        </children>
                                        <VBox.margin>
                                           <Insets />
@@ -66,13 +66,13 @@
                            <children>
                               <VBox layoutX="46.0" layoutY="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <TitledPane animated="false" text="Поисковик" VBox.vgrow="ALWAYS">
+                                    <TitledPane text="Поисковик" VBox.vgrow="ALWAYS">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                       </content>
                                     </TitledPane>
                                     <Separator prefWidth="200.0" VBox.vgrow="NEVER" />
-                                    <TitledPane animated="false" maxHeight="1.7976931348623157E308" text="Информатор" VBox.vgrow="ALWAYS">
+                                    <TitledPane maxHeight="1.7976931348623157E308" text="Информатор" VBox.vgrow="ALWAYS">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
@@ -122,25 +122,25 @@
                                                                   <Font size="14.0" />
                                                                </font>
                                                             </Label>
-                                                            <TextField editable="false" GridPane.columnIndex="1" />
-                                                            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                            <TextField fx:id="_idTextField" editable="false" GridPane.columnIndex="1" />
+                                                            <TextField fx:id="_nameCompTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                            <TextField fx:id="_typeTextEdit" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <TextField fx:id="_costTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                            <TextField fx:id="_datasheetPathTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                            <TextArea fx:id="_compInfoTextArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                                          </children>
                                                       </GridPane>
                                                       <VBox VBox.vgrow="NEVER">
                                                          <children>
                                                             <HBox>
                                                                <children>
-                                                                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Открыть Datasheet" HBox.hgrow="ALWAYS" />
+                                                                  <Button fx:id="_openDatasheetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#_onOpenDatasheetButtonClicked" text="Открыть Datasheet" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
                                                             <HBox>
                                                                <children>
-                                                                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Добавить новый компонент" HBox.hgrow="ALWAYS" />
-                                                                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Сохранить изменения" HBox.hgrow="ALWAYS" />
+                                                                  <Button fx:id="_addCompButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#_onAddCompButtonClicked" text="Добавить новый компонент" HBox.hgrow="ALWAYS" />
+                                                                  <Button fx:id="_saveDataButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#_onSaveDataButtonClicked" text="Сохранить изменения" HBox.hgrow="ALWAYS" />
                                                                </children>
                                                             </HBox>
                                                          </children>
